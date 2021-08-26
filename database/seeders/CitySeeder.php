@@ -18,11 +18,11 @@ class CitySeeder extends Seeder
 
     public function run(): void
     {
-        $cities = ["Katowice","Lubin","Szczecin","Warszawa","Polkowice","Legnica","Opole","Bydgoszcz","Lublin","Gdynia"];
+        $cities = ["Katowice", "Lubin", "Szczecin", "Warszawa", "Polkowice", "Legnica", "Opole", "Bydgoszcz", "Lublin", "Gdynia"];
 
         for ($i = 0; $i < 10; $i++) {
-            $this->manager->table('cities')->insert([
-                'name' => $cities[$i],
+            $this->manager->table("cities")->insert([
+                "name" => $cities[$i],
             ]);
         }
     }

@@ -32,7 +32,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">API</a>
+                <a class="nav-link active" aria-current="page" href="https://openweathermap.org/current">API</a>
             </div>
         </div>
     </div>

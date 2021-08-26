@@ -3,12 +3,11 @@
 <div class="table-responsive">
 
     <h1>{{$weather[0]["city"]["name"]}}</h1>
+    <h5>{{$weather[0]["main"]}}, {{$weather[0]["description"]}}</h5>
     <br>
     <table class="table table-bordered table-light">
         <thead>
         <tr>
-            <th scope="col">Weather</th>
-            <th scope="col">Description</th>
             <th scope="col">Temperature</th>
             <th scope="col">Pressure</th>
             <th scope="col">Humidity</th>
@@ -19,8 +18,6 @@
         <tbody>
         @foreach($weather as $weather)
             <tr>
-                <td>{{ $weather["main"] }}</td>
-                <td>{{ $weather["description"] }}</td>
                 <td>{{ $weather["temperature"]}} C</td>
                 <td>{{ $weather["pressure"] }} hPa</td>
                 <td>{{ $weather["humidity"] }} %</td>

@@ -21,21 +21,21 @@ class WeatherController extends Controller
         ]);
     }
 
-    public static function store($name,httpFactory $http,DatabaseManager $manager): void
+    public static function store($name, httpFactory $http, DatabaseManager $manager): void
     {
         $api_key  = "ef85c8eb58a752a0497dd7eedcf9e772";
-        $city = City::query()->where("name",$name)->pluck('id')[0];
-        $weather = $http->get("api.openweathermap.org/data/2.5/weather?q=$name&appid={$api_key}");
+        $city = City::query()->where("name", $name)->pluck("id")[0];
+        $weather = $http->get("api.openweathermap.org/data/2.5/weather?q=${name}&appid={$api_key}");
 
-        $manager->table('weather')->insert([
+        $manager->table("weather")->insert([
             "main" => $weather["weather"][0]["main"],
             "description" => $weather["weather"][0]["description"],
-            "temperature" => $weather["main"]["temp"]-273.15,
+            "temperature" => $weather["main"]["temp"] - 273.15,
             "pressure" => $weather["main"]["pressure"],
             "humidity" => $weather["main"]["humidity"],
-            "visibility" => $weather["visibility"]/1000,
+            "visibility" => $weather["visibility"] / 1000,
             "wind_speed" => $weather["wind"]["speed"],
             "city_id" => $city,
-            ]);
+        ]);
     }
 }

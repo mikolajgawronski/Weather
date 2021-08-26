@@ -41,7 +41,7 @@ class CityController extends Controller
         $city->name = $request->name;
         $city->save();
 
-        WeatherController::store($request->name,$this->http,$this->manager);
+        WeatherController::store($request->name, $this->http, $this->manager);
 
         return redirect("/")->with("message", "City added");
     }
