@@ -15,7 +15,6 @@ class CreateWeatherTable extends Migration
     {
         Schema::create("weather", function (Blueprint $table): void {
             $table->id();
-            $table->string("city_name");
             $table->string("main");
             $table->string("description");
             $table->float("temperature");
@@ -23,6 +22,9 @@ class CreateWeatherTable extends Migration
             $table->integer("humidity");
             $table->integer("visibility");
             $table->float("wind_speed");
+            $table->unsignedBigInteger("city_id");
+            $table->foreign("city_id")->references("id")->on("cities")
+                ->onDelete("cascade");
             $table->timestamps();
         });
     }

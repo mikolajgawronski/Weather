@@ -12,12 +12,12 @@
         @foreach($city as $city)
             <tr>
                 <td>{{ $city['name'] }}</td>
-                <td><button type="button" class="btn btn-primary">Open</button> <button type="button" class="btn btn-danger">Delete</button></td>
+                <td><a class="btn btn-primary" href={{url($city->id)}}>Open</a> <button type="button" class="btn btn-danger">Delete</button></td>
             </tr>
         @endforeach
         <tr>
             <td></td>
-            <td><button type="button" class="btn btn-success">Add a City</button></td>
+            <td><a class="btn btn-success" href="/create">Add a City</a></td>
         </tr>
         </tbody>
     </table>

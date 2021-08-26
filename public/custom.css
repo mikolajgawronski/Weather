@@ -220,7 +220,7 @@ a, .btn-link {
 .site-footer {
     background-color: #3F51B5;
     height: 80px;
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
 }
