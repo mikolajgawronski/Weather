@@ -23,9 +23,8 @@ class WeatherController extends Controller
 
     public static function store($name, httpFactory $http, DatabaseManager $manager): void
     {
-        $api_key  = "ef85c8eb58a752a0497dd7eedcf9e772";
         $city = City::query()->where("name", $name)->pluck("id")[0];
-        $weather = $http->get("api.openweathermap.org/data/2.5/weather?q=${name}&appid={$api_key}");
+        $weather = $http->get("api.openweathermap.org/data/2.5/weather?q=${name}&appid=".env('WEATHER_API_TOKEN'));
 
         $manager->table("weather")->insert([
             "main" => $weather["weather"][0]["main"],
